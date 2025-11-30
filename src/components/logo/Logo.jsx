@@ -3,7 +3,7 @@ import LOGO from "@assets/images/main_title.svg";
 import CHAR from "@assets/images/character_full.png";
 import useNavigation from "../../hooks/useNavagation";
 
-const Logo = ({ char = "6rem", width = "31.3125rem" }) => {
+const Logo = ({ char = "4.8980vw", width = "25.5612vw" }) => {
   const { goTo } = useNavigation();
 
   return (

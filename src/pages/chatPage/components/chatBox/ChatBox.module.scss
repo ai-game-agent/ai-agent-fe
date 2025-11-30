@@ -2,5 +2,5 @@
 @use "../../../../styles/mixins" as m;
 
 .chatBoxContainer {
-  @include m.flex-column-center(2rem, center, space-between);
+  @include m.flex-column-center(1.6327vw, center, space-between);
 }

@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as m;
+
 $drop-count: 30;
 $rain-color: #ba8fbc;
 $highlight-color: #e0c3e2;
@@ -7,7 +11,7 @@ $highlight-color: #e0c3e2;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 56.25vw;
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
@@ -15,50 +19,44 @@ $highlight-color: #e0c3e2;
 
 .rain-drop {
   position: absolute;
-  top: -20px;
+  top: -1.0204vw;
 
-  // 기본 모양
   background-color: $rain-color;
-  width: 10px;
-  height: 10px;
+  width: 0.5102vw;
+  height: 0.5102vw;
 
-  // 빛나는 효과
-  box-shadow: 0 0 5px rgba($rain-color, 0.6), 0 0 10px rgba($rain-color, 0.4);
+  box-shadow: 0 0 0.2551vw rgba($rain-color, 0.6),
+    0 0 0.5102vw rgba($rain-color, 0.4);
 
   animation: fall linear infinite;
 }
 
 @for $i from 1 through $drop-count {
   .rain-drop:nth-child(#{$i}) {
-    // 가로 위치
-    left: #{random(96)}vw;
+    left: #{math.random(96)}vw;
 
-    // 떨어지는 속도
-    $duration: random(5000) / 1000 + 5s;
+    $duration: math.div(math.random(5000), 1000) + 5s;
     animation-duration: $duration;
 
-    // 시작 지연
-    animation-delay: -#{random(5000) / 1000}s;
+    animation-delay: -#{math.div(math.random(5000), 1000)}s;
 
-    $size: #{random(10) + 5}px;
-    width: $size;
-    height: $size;
+    $size: math.random(10) + 5;
+    width: #{math.div($size * 100, 1960)}vw;
+    height: #{math.div($size * 100, 1960)}vw;
 
-    // 투명도
-    opacity: random(6) / 10 + 0.2;
+    opacity: math.div(math.random(6), 10) + 0.2;
 
     @if ($i % 3 == 0) {
       background-color: $highlight-color;
-      box-shadow: 0 0 8px rgba($highlight-color, 0.8);
+      box-shadow: 0 0 0.4082vw rgba($highlight-color, 0.8);
       z-index: -1;
     }
   }
 }
 
-/* 떨어지는 애니메이션 */
 @keyframes fall {
   0% {
-    transform: translateY(-10vh) rotate(0deg);
+    transform: translateY(-5.625vw) rotate(0deg);
     opacity: 0;
   }
   10% {
@@ -68,7 +66,7 @@ $highlight-color: #e0c3e2;
     opacity: 1;
   }
   100% {
-    transform: translateY(110vh) rotate(180deg);
+    transform: translateY(61.875vw) rotate(180deg);
     opacity: 0;
   }
 }

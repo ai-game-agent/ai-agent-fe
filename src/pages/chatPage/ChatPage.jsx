@@ -9,7 +9,7 @@ const ChatPage = () => {
 
   return (
     <div className={s.chatPageContainer}>
-      <Logo char="2.9rem" width="17rem" />
+      <Logo char="2.3673vw" width="13.8776vw" />
       <div className={s.chatFrame}>
         <section className={s.topBar}>
           <div className={s.circle1} onClick={() => goTo("/")} />
@@ -20,7 +20,7 @@ const ChatPage = () => {
           <div className={s.chatSection}>
             <ChatBox />
           </div>
-          <Input height="4rem" />
+          <Input height="3.2653vw" />
         </section>
       </div>
     </div>

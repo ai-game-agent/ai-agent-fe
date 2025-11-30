@@ -2,36 +2,36 @@
 @use "../../styles/mixins" as m;
 
 .chatPageContainer {
-  @include m.flex-row-center(1rem, flex-start, flex-start);
-  padding: 3rem;
+  @include m.flex-row-center(0.8163vw, flex-start, flex-start);
+  padding: 2.449vw;
 }
 
 .chatFrame {
-  width: 60.2rem;
-  height: 61.2rem;
-  border: 3px solid #9b6493;
-  border-radius: 0.625rem;
+  width: 49.1429vw;
+  height: 49.9592vw;
+  border: 0.1531vw solid #9b6493;
+  border-radius: 0.5102vw;
 
   .topBar {
-    @include m.flex-row-center(0.7rem, flex-start);
-    padding: 0.7rem;
+    @include m.flex-row-center(0.5714vw, flex-start);
+    padding: 0.5714vw;
     background-color: #9b6493;
-    height: 2.3rem;
-    border-radius: 0.4rem 0.4rem 0 0;
+    height: 1.8776vw;
+    border-radius: 0.3265vw 0.3265vw 0 0;
   }
 
   .content {
-    @include m.flex-column-center(1rem);
+    @include m.flex-column-center(0.8163vw);
     background: $primary-gradient;
-    height: 58.5rem;
-    border-radius: 0 0 0.4rem 0.4rem;
-    padding: 1.7rem;
+    height: 47.7551vw;
+    border-radius: 0 0 0.3265vw 0.3265vw;
+    padding: 1.3878vw;
 
     .chatSection {
       flex: 9;
       overflow-y: auto;
       width: 100%;
-      padding: 0 0.7rem;
+      padding: 0 0.5714vw;
     }
   }
 }
@@ -39,8 +39,8 @@
 .circle1,
 .circle2,
 .circle3 {
-  width: 0.82rem;
-  height: 0.82rem;
+  width: 0.6694vw;
+  height: 0.6694vw;
   border-radius: 50%;
 }
 .circle1 {

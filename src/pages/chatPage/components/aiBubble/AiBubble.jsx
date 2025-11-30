@@ -8,15 +8,13 @@ const AiBubble = ({ text }) => {
 
   return (
     <div className={s.aiBubbleContainer}>
-      {/* 상단 멘트 */}
       {intro && (
         <div className={s.introSection}>
-          <img src={AI} alt="ai" style={{ width: "2.06rem" }} />{" "}
+          <img src={AI} alt="ai" style={{ width: "1.6816vw" }} />
           <div className={s.introBubble}>{intro}</div>
         </div>
       )}
 
-      {/* 게임 카드 리스트 */}
       <div className={s.cardList}>
         {games.map((game, index) => (
           <div key={index} className={s.gameCard}>
@@ -31,7 +29,7 @@ const AiBubble = ({ text }) => {
       </div>
 
       {outro && (
-        <div className={s.introBubble} style={{ marginLeft: "2rem" }}>
+        <div className={s.introBubble} style={{ marginLeft: "1.6327vw" }}>
           {outro}
         </div>
       )}

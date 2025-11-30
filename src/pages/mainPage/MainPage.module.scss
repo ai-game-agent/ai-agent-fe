@@ -10,29 +10,27 @@
 }
 
 .MainPageContainer {
-  height: 80vh;
-  @include m.flex-column-center(3rem);
+  height: 45vw;
+  @include m.flex-column-center(2.449vw);
 }
 
 .descriptionText {
-  margin-top: 8rem;
-  font-size: 2.5rem;
+  margin-top: 6.5306vw;
+  font-size: 2.0408vw;
   color: transparent;
   -webkit-text-fill-color: transparent;
 
-  -webkit-text-stroke: 2.5px $color-white;
+  -webkit-text-stroke: 0.1276vw $color-white;
   font-family: DungeonFighterOnlineBeatBeat;
 
-  /* 커서 효과 */
   &::after {
     content: "|";
-    margin-left: 4px;
+    margin-left: 0.2041vw;
     color: #ba8fbc;
     animation: blink 1s step-end infinite;
   }
 }
 
-// 깜빡이는 애니메이션
 @keyframes blink {
   0%,
   100% {

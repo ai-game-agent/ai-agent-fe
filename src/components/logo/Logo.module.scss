@@ -2,7 +2,7 @@
 @use "../../styles/mixins" as m;
 
 .logoContainer {
-  @include m.flex-row-center(1.3rem);
-  margin-right: 2.5rem;
+  @include m.flex-row-center(1.0612vw);
+  margin-right: 2.0408vw;
   cursor: pointer;
 }
