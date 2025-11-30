@@ -22,4 +22,23 @@
 
   -webkit-text-stroke: 2.5px $color-white;
   font-family: DungeonFighterOnlineBeatBeat;
+
+  /* 커서 효과 */
+  &::after {
+    content: "|";
+    margin-left: 4px;
+    color: #ba8fbc;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+// 깜빡이는 애니메이션
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
