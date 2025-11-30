@@ -1,0 +1,55 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as m;
+
+.chatPageContainer {
+  @include m.flex-row-center(1rem, flex-start, flex-start);
+  padding: 3rem;
+}
+
+.chatFrame {
+  width: 60.2rem;
+  height: 61.2rem;
+  border: 3px solid #9b6493;
+  border-radius: 0.625rem;
+
+  .topBar {
+    @include m.flex-row-center(0.7rem, flex-start);
+    padding: 0.7rem;
+    background-color: #9b6493;
+    height: 2.3rem;
+    border-radius: 0.4rem 0.4rem 0 0;
+  }
+
+  .content {
+    @include m.flex-column-center(1rem);
+    background: $primary-gradient;
+    height: 58.5rem;
+    border-radius: 0 0 0.4rem 0.4rem;
+    padding: 1.7rem;
+
+    .chatSection {
+      flex: 9;
+      overflow-y: auto;
+      width: 100%;
+      padding: 0 0.7rem;
+    }
+  }
+}
+
+.circle1,
+.circle2,
+.circle3 {
+  width: 0.82rem;
+  height: 0.82rem;
+  border-radius: 50%;
+}
+.circle1 {
+  background-color: #ea3939;
+  cursor: pointer;
+}
+.circle2 {
+  background-color: #e3c128;
+}
+.circle3 {
+  background-color: #1aad1a;
+}
