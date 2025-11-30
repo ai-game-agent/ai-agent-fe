@@ -1,0 +1,25 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as m;
+
+@font-face {
+  font-family: "DungeonFighterOnlineBeatBeat";
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff"),
+    url("//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+.MainPageContainer {
+  height: 80vh;
+  @include m.flex-column-center(3rem);
+}
+
+.descriptionText {
+  margin-top: 8rem;
+  font-size: 2.5rem;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  -webkit-text-stroke: 2.5px $color-white;
+  font-family: DungeonFighterOnlineBeatBeat;
+}
