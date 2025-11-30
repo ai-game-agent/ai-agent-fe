@@ -1,0 +1,6 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as m;
+
+.logoContainer {
+  @include m.flex-row-center(1.3rem);
+}
