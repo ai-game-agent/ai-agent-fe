@@ -4,7 +4,7 @@ import { parseAiResponse } from "../../../../utils/parseAiResponse";
 import AI from "@assets/images/ai_profile.png";
 
 const AiBubble = ({ text }) => {
-  const { intro, games } = useMemo(() => parseAiResponse(text), [text]);
+  const { intro, games, outro } = useMemo(() => parseAiResponse(text), [text]);
 
   return (
     <div className={s.aiBubbleContainer}>
@@ -29,6 +29,12 @@ const AiBubble = ({ text }) => {
           </div>
         ))}
       </div>
+
+      {outro && (
+        <div className={s.introBubble} style={{ marginLeft: "2rem" }}>
+          {outro}
+        </div>
+      )}
     </div>
   );
 };

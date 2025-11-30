@@ -1,37 +1,58 @@
 export const parseAiResponse = (rawText) => {
-  if (!rawText) return { intro: "", games: [] };
+  if (!rawText) return { intro: "", games: [], outro: "" };
 
-  const lines = rawText.split("\n");
+  // 줄바꿈(\n) 기준으로 쪼개고 공백 제거
+  const lines = rawText
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line !== "");
+
   const introLines = [];
+  const outroLines = [];
   const games = [];
 
-  const gameRegex = /- \*\*(.*?)\*\*: (.*?)(?:\[(\d+)\])?$/;
+  let isGameSectionStarted = false;
+
+  // 숫자 + 점 패턴
+  const numberRegex = /^(\d+)\.\s*(.*)/;
 
   lines.forEach((line) => {
-    const trimmed = line.trim();
-    if (!trimmed) return; // 빈 줄 무시
+    const match = line.match(numberRegex);
 
-    if (trimmed.startsWith("-")) {
-      // 게임 리스트
-      const match = trimmed.match(gameRegex);
-      if (match) {
-        games.push({
-          title: match[1],
-          desc: match[2],
-          citation: match[3] || null,
-        });
+    if (match) {
+      // 숫자로 시작하는 줄 -> 게임 정보
+      isGameSectionStarted = true;
+
+      const content = match[2];
+
+      // 제목과 설명 분리
+      const separatorIndex = content.indexOf(" - ");
+
+      let title = "";
+      let desc = "";
+
+      if (separatorIndex !== -1) {
+        title = content.substring(0, separatorIndex).trim();
+        desc = content.substring(separatorIndex + 3).trim();
       } else {
-        // 정규식 안 맞으면 그냥 통째로 넣기
-        games.push({ title: "Unknown", desc: trimmed.replace("- ", "") });
+        title = content;
+        desc = "";
       }
+
+      games.push({ title, desc });
     } else {
-      // "-"로 시작 안 하면 멘트
-      introLines.push(trimmed);
+      // 숫자가 아닌 줄
+      if (!isGameSectionStarted) {
+        introLines.push(line);
+      } else {
+        outroLines.push(line);
+      }
     }
   });
 
   return {
     intro: introLines.join("\n"),
     games: games,
+    outro: outroLines.join("\n"),
   };
 };
