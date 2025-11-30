@@ -3,4 +3,5 @@
 
 .logoContainer {
   @include m.flex-row-center(1.3rem);
+  margin-right: 2.5rem;
 }
