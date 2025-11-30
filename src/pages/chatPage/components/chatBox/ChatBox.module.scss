@@ -1,0 +1,6 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as m;
+
+.chatBoxContainer {
+  @include m.flex-column-center(2rem, center, space-between);
+}
