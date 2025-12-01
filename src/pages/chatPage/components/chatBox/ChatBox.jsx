@@ -1,6 +1,7 @@
 import s from "./ChatBox.module.scss";
 import UserBubble from "../userBubble/UserBubble";
 import AiBubble from "../aiBubble/AiBubble";
+import { useState } from "react";
 
 // AI 답변 임시
 const rawText = `
@@ -13,11 +14,26 @@ const rawText = `
 \n\n이 게임들은 모두 독특한 설정과 재미있는 요소를 가지고 있어, RPG를 좋아하시는 분들에게 추천드립니다. 보다 구체적인 선호도에 따라 다른 추천이 필요하신 경우 알려주시면 도와드리겠습니다. \n
 `;
 
-const ChatBox = () => {
+const ChatBox = ({ initialUserQuery, initialAiResponse }) => {
+  const [messages /*setMessages*/] = useState(() => {
+    if (initialUserQuery && initialAiResponse) {
+      return [
+        { type: "user", text: initialUserQuery },
+        { type: "ai", text: initialAiResponse },
+      ];
+    }
+    return []; // 데이터가 없으면 빈 배열로
+  });
+
   return (
     <div className={s.chatBoxContainer}>
-      <UserBubble text={`커플끼리 할 2만원 이하 게임 추천해줘`} />
-      <AiBubble text={rawText} />
+      {messages.map((msg, index) =>
+        msg.type === "user" ? (
+          <UserBubble key={index} text={msg.text} />
+        ) : (
+          <AiBubble key={index} text={rawText} /> // msg.text
+        )
+      )}
     </div>
   );
 };
