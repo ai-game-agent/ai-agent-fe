@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const ENDPOINT = "/recommend";
 
 export const fetchRecommendation = async (query, sessionId) => {
@@ -15,6 +15,7 @@ export const fetchRecommendation = async (query, sessionId) => {
         "Content-Type": "application/json",
       },
     });
+    console.log("AI 답변: ", response);
 
     return response.data;
   } catch (error) {
