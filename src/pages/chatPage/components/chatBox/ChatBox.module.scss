@@ -4,3 +4,18 @@
 .chatBoxContainer {
   @include m.flex-column-center(1.6327vw, center, space-between);
 }
+
+.spinnerWrapperInChat {
+  align-self: flex-start;
+  margin-top: 0.6122vw;
+  margin-left: 1.6816vw;
+  padding: 0.8163vw;
+
+  // 크기 작게 조정
+  > * {
+    transform: scale(0.6);
+    transform-origin: left;
+    width: auto;
+    height: 1.5vw;
+  }
+}

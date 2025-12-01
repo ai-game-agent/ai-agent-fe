@@ -5,6 +5,7 @@ import useTypewriter from "../../utils/useTypewriter";
 import useNavigation from "../../hooks/useNavagation";
 import { useState } from "react";
 import { fetchRecommendation } from "../../apis/recommend";
+import Spinner from "../../components/spinner/Spinner";
 
 const MainPage = () => {
   const { goTo } = useNavigation();
@@ -45,6 +46,14 @@ const MainPage = () => {
       setIsLoading(false);
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className={s.MainPageContainer}>
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className={s.MainPageContainer}>
