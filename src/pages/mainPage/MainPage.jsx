@@ -18,7 +18,7 @@ const MainPage = () => {
 
   const handleRecommend = async () => {
     const query = inputValue.trim();
-    const sessionId = "my-session-1"; // 요청하신 고정 세션 ID
+    const sessionId = "my-session-2"; // 고정 세션 ID
 
     if (isLoading || !query) {
       // 로딩 중이거나 입력 값이 비어있으면 동작하지 않음

@@ -43,7 +43,7 @@ const ChatPage = () => {
     setIsLoading(true);
 
     try {
-      const sessionId = "my-session-1";
+      const sessionId = "my-session-2";
       const newAiResponse = await fetchRecommendation(query, sessionId);
       const newAiText = newAiResponse.response || "답변을 불러오지 못했습니다.";
 
