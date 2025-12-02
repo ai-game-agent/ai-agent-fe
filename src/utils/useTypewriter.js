@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// 텍스트 타이핑 애니메이션 함수
 const useTypewriter = (text, speed = 50) => {
   const [displayText, setDisplayText] = useState("");
 

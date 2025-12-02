@@ -1,3 +1,4 @@
+// API 응답 파싱 함수 (intro, games, outro)
 export const parseAiResponse = (rawText) => {
   if (!rawText || typeof rawText !== "string") {
     return { intro: "", games: [], outro: "" };
